@@ -1,0 +1,19 @@
+id: org.texstudio.TeXstudio.Extension.ngrams.fr
+build-extension: true
+runtime: org.texstudio.TeXstudio
+sdk: org.freedesktop.Sdk//22.08
+
+modules:
+  - name: download
+    buildsystem: simple
+    build-commands:
+      - cp -ar ./* ${FLATPAK_DEST}
+    sources:
+      - type: archive
+        url: https://languagetool.org/download/ngram-data/ngrams-fr-20150913.zip
+        sha512: 5437175631652af12a8c87d09adcbf5a109061bac58a9ea45fb5ac76b0459ff165db62eb6b98c87a65f73bd8855c27f39dbf4ce59c8a0c89f6390ff9304fa84c
+        x-checker-data:
+          type: html
+          url: https://languagetool.org/download/ngram-data/
+          version-pattern: ngrams-fr-(\d{8}).zip
+          url-template: ngrams-fr-$version.zip
